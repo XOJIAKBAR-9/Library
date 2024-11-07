@@ -1,0 +1,13 @@
+<h1>Students list</h1>
+<hr>
+
+<form method="GET">
+    <label>Search</label>
+    <input type="text", name="search" value="{{request.GET.search}}">
+    <button type="submit">Search</button>
+</form>
+<hr>
+
+{% for talaba in talabalar %}
+    <p>{{talaba.ism}}, [{{talaba.kurs}}-kurs] <a href="/delete/student/{{talaba.id}}"><button>Delete</button></a></p>
+{% endfor %}
