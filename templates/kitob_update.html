@@ -1,0 +1,21 @@
+<h2>{{kitob.nom}} ni tahrirlash</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label>Nom:</label>
+    <input type="text" name="nom" value="{{kitob.nom}}">
+    <br>
+    <label>Janr:</label>
+    <input type="text" name="janr" value="{{kitob.janr}}">
+    <br>
+    <label>Sahifa:</label>
+    <input type="number" name="sahifa" value="{{kitob.sahifa}}">
+    <br>
+    <select> name= "muallif_id">
+        <option> value="{{kitob.muallif.id}}>{{muallif.ism}}</option>
+        {% for m in mualliflar %}
+        <option> value="{{m.id}}">{{m.ism}}</option>
+        {% endfor %}
+    </select>
+    <button>Tahrirlash</button>
+</form>

@@ -1,0 +1,18 @@
+<h3>{{ talaba.ism}} ma'lumotlarini edit qilish</h3>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    <label>Ism:</label>
+    <input type="text" name="ism" value="{{ talaba.ism}}">
+    <br><br>
+    <label>Guruh:</label>
+    <input type="text" name="guruh" value="{{ talaba.guruh}}">
+    <br><br>
+    <label>Kurs:</label>
+    <input type="number" name="kurs" value="{{ talaba.kurs}}">
+    <br><br>
+    <label>kitob_soni:</label>
+    <input type="text" name="kitob_soni" value="{{ talaba.kitob_soni}}">
+    <br><br>
+    <button>Submit</button>
+</form>

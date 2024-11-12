@@ -2,6 +2,15 @@
 <hr>
 <p>
     {% for kitob in kitob_all %}
-        {{kitob.nom}}
+        {{kitob.nom}} <a href ="/kitoblar/{{kitob.id}}/delete/">
+        <button>Delete</button>
+    </a>
     {% endfor %}
 </p>
+<hr>
+<h2>Yangi book qo'shish</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button> Create </button>
+</form>

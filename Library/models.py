@@ -1,9 +1,8 @@
 from django.db import models
 
 class Talaba(models.Model):
-    objects = None
     ism = models.CharField(max_length=50)
-    guruh = models.CharField(max_length=20), models.IntegerField
+    guruh = models.CharField(max_length=20)
     kurs = models.PositiveSmallIntegerField(default=1)
     kitob_soni = models.IntegerField(default=4)
 
@@ -42,7 +41,7 @@ class Kitob(models.Model):
     nom = models.CharField(max_length=30)
     janr = models.CharField(max_length=20, default="Romantika")
     sahifa = models.PositiveSmallIntegerField(blank=True,null=True)
-    muallif = models.ForeignKey(Muallif, models.CASCADE)
+    muallif = models.ForeignKey(Muallif, on_delete=models.CASCADE)
 
 
     class Meta:

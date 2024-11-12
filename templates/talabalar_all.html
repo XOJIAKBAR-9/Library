@@ -1,6 +1,5 @@
-<h1>Students list</h1>
+<h1>Students list <a href="/new_student/"><button>Add student</button></a></h1>
 <hr>
-
 <form method="GET">
     <label>Search</label>
     <input type="text", name="search" value="{{request.GET.search}}">
@@ -9,5 +8,14 @@
 <hr>
 
 {% for talaba in talabalar %}
-    <p>{{talaba.ism}}, [{{talaba.kurs}}-kurs] <a href="/delete/student/{{talaba.id}}"><button>Delete</button></a></p>
+    <p>{{talaba.ism}}, [{{talaba.kurs}}-kurs] <a href="/delete/student/{{talaba.id}}"><button>Delete</button></a>
+        <a href="/talabalar_all/{{talaba.id}}/update/"><button>Update</button></a>
+    </p>
 {% endfor %}
+<hr>
+<h2>Yangi talabalar qo'shish</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button>Create</button>
+</form>
