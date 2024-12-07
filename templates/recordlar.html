@@ -1,6 +1,11 @@
 <h1>All records</h1>
 <hr>
 
-<p>{%for record in records_all%}</p>
-{{record.qaytardi}}
+{% for record in records %}
+  <p>Student Name: {{ record.talaba.name }}</p>
 {% endfor %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button> Add </button>
+</form>

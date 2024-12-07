@@ -3,3 +3,10 @@
     {%for muallif in mualliflar%}
     <p>{{muallif.ism}}</p>
     {% endfor %}
+<hr>
+<h4>New authors</h4>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button> Add </button>
+</form>

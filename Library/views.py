@@ -49,8 +49,15 @@ def talabalar(request):
 
 def muallif_all(request):
     mualliflar = Muallif.objects.all()
+    if request.method=="POST":
+        form=Muallifform(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('mualliflar')
+    form=Muallifform()
     context = {
-        'mualliflar': mualliflar
+        'mualliflar': mualliflar,
+        'form':form
     }
     return render(request, "mualliflar.html", context)
 
@@ -88,8 +95,15 @@ def all_books(request):
 
 def all_records(request):
     records_all = Records.objects.all()
+    if request.method=="POST":
+        form=Recordform(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("records_all")
+    form=Recordform()
     context = {
-        'records_all': records_all
+        'records_all': records_all,
+        'form':form
     }
     return render(request, "recordlar.html", context)
 
@@ -222,3 +236,5 @@ def kitob_delete(request,book_id):
     kitob=get_object_or_404(Kitob, id=book_id)
     kitob.delete()
     return redirect('kitob_all')
+
+

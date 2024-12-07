@@ -31,7 +31,7 @@ class MuallifAdmin(admin.ModelAdmin):
     inlines = [KitobInline]
 
 
-class Kutubxonachi(admin.ModelAdmin):
+class KutubxonachiAdmin(admin.ModelAdmin):
     list_display = ["ism", "ish_vaqti"]
     list_editable = ["ish_vaqti"]
     search_fields=["ism"]
@@ -39,8 +39,8 @@ class Kutubxonachi(admin.ModelAdmin):
     save_as_continue = True
 
 
-# admin.site.register(Talaba, TalabaAdmin)
-# admin.site.register(Muallif, MuallifAdmin)
-# admin.site.register(Kitob, KitobAdmin)
-# admin.site.register(Kutubxonachi)
-# admin.site.register(Records, RecordAdmin)
+admin.site.register(Talaba, TalabaAdmin)
+admin.site.register(Muallif, MuallifAdmin)
+admin.site.register(Kitob, KitobAdmin)
+admin.site.register(Kutubxonachi, KutubxonachiAdmin)
+admin.site.register(Records, RecordAdmin)
